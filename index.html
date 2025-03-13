@@ -77,6 +77,19 @@
             overflow-y: auto;
             height: calc(100vh - 300px);
         }
+         /* Neue Styles für die Bilder */
+        .planet-images {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px; /* Platz unter der Navigationsleiste */
+            z-index: 5;
+        }
+        .planet-images img {
+            width: 45%; /* Etwas kleiner als die Hälfte, für Abstand */
+            max-width: 500px; /* Maximale Breite */
+            height: auto;
+            margin: 0 10px; /* Abstand zwischen den Bildern */
+        }
     </style>
 </head>
 <body>
@@ -92,8 +105,11 @@
     <!-- Logo -->
     <img id="logo" src="webfiles/004.jpg" alt="Solar System Society Logo">
 
-    <!-- Mars -->
-    <div id="mars"></div>
+    <!-- Zwei nebeneinander stehende Bilder -->
+    <div class="planet-images">
+        <img src="webfiles/mars.jpg" alt="Mars">
+        <img src="webfiles/moon.jpg" alt="Moon">
+    </div>
 
     <!-- Komet -->
     <div id="comet"></div>
