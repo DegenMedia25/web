@@ -2,154 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System Society</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle at center, #050514 0%, #00001a 100%);
-            color: #020426;
+            background-color: #0a0a1a; /* Nahezu superdunkelblau bis schwarz */
             overflow: hidden;
-        }
-        header {
-            background: rgba(2, 4, 38, 0.7);
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        h1 {
-            margin: 0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-        h2 {
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-        p {
-            line-height: 1.6;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            font-family: Arial, sans-serif;
+            color: white;
         }
 
-        /* Sterne */
-        .stars {
+        /* Navigationsleiste */
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            pointer-events: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            z-index: 10;
         }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* Logo oben links */
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            z-index: 10;
+        }
+
+        /* Funkelnde Sterne */
         .star {
             position: absolute;
             background: white;
             border-radius: 50%;
-            animation: twinkle infinite alternate;
+            animation: twinkle 2s infinite;
         }
-        .star:nth-child(3n) {
-            width: 1px;
-            height: 1px;
-            animation-duration: 2s;
-        }
-        .star:nth-child(3n+1) {
-            width: 2px;
-            height: 2px;
-            animation-duration: 3s;
-        }
-        .star:nth-child(3n+2) {
-            width: 3px;
-            height: 3px;
-            animation-duration: 4s;
-        }
-
         @keyframes twinkle {
             0% { opacity: 0.2; }
-            100% { opacity: 1; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
         }
 
         /* Komet */
-        .comet {
-            position: fixed;
-            width: 5px;
-            height: 5px;
-            background: #fff;
+        #comet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, white, transparent);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: moveComet 15s linear infinite;
-            z-index: 0;
+            box-shadow: 0 0 10px white;
+            animation: comet-fly 5s linear infinite;
         }
-        .comet::after {
-            content: '';
+        @keyframes comet-fly {
+            0% { left: -50px; bottom: -50px; }
+            100% { left: 100%; bottom: 100%; }
+        }
+
+        /* Mars im Hintergrund */
+        #mars {
             position: absolute;
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-            transform: translateX(-100%);
             top: 50%;
-            left: 100%;
-        }
-
-        @keyframes moveComet {
-            0% {
-                bottom: -10%;
-                left: -10%;
-                transform: translate(-100%, 100%);
-            }
-            100% {
-                bottom: 110%;
-                left: 110%;
-                transform: translate(0, -100%);
-            }
-        }
-
-        /* Bild-Styling */
-        .solar-image {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            z-index: 2;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #d96b4a 20%, #8b2e1a 60%, transparent 80%);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="comet"></div>
-    <img src="pics/004t.png" alt="Solar System Image" class="solar-image">
-    <header>
-        <h1>Solar System Society</h1>
-    </header>
-    <main>
-        <h2>Welcome</h2>
-        <p>
-            The Solar System Society is dedicated to exploring and understanding 
-            our cosmic neighborhood. Join us in our mission to learn more about 
-            the planets, stars, and mysteries of our solar system.
-        </p>
-    </main>
+    <!-- Navigationsleiste -->
+    <nav>
+        <a href="#">Our Society</a>
+        <a href="#">Whitepaper</a>
+        <a href="#">Buy/Sell Moon & Mars</a>
+        <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
+    </nav>
+
+    <!-- Logo -->
+    <img id="logo" src="webfiles/004.jpg" alt="Solar System Society Logo">
+
+    <!-- Mars -->
+    <div id="mars"></div>
+
+    <!-- Komet -->
+    <div id="comet"></div>
 
     <script>
-        // JavaScript zum Erzeugen der Sterne
-        const starsContainer = document.querySelector('.stars');
-        const numStars = 200;
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            starsContainer.appendChild(star);
+        // Funkelnde Sterne generieren
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement("div");
+                star.className = "star";
+                star.style.width = Math.random() * 3 + "px";
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + "vw";
+                star.style.top = Math.random() * 100 + "vh";
+                star.style.animationDelay = Math.random() * 2 + "s";
+                document.body.appendChild(star);
+            }
         }
+
+        // Sterne beim Laden der Seite erstellen
+        window.onload = createStars;
     </script>
 </body>
 </html>
