@@ -8,13 +8,12 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #0a0a1a; /* Nahezu superdunkelblau bis schwarz */
+            background-color: #0a0a1a;
             overflow: hidden;
             font-family: Arial, sans-serif;
             color: white;
         }
 
-        /* Navigationsleiste */
         nav {
             position: fixed;
             top: 0;
@@ -34,7 +33,6 @@
             color: #ffcc00;
         }
 
-        /* Logo oben links */
         #logo {
             position: absolute;
             top: 10px;
@@ -43,7 +41,6 @@
             z-index: 10;
         }
 
-        /* Funkelnde Sterne */
         .star {
             position: absolute;
             background: white;
@@ -56,7 +53,6 @@
             100% { opacity: 0.2; }
         }
 
-        /* Komet */
         #comet {
             position: absolute;
             width: 20px;
@@ -71,15 +67,23 @@
             100% { left: 100%; bottom: 100%; }
         }
 
-      
+        /* Neue Styles für Textfelder */
+        .content-section {
+            position: relative;
+            margin-top: 100px;
+            padding: 20px;
+            z-index: 5;
+            overflow-y: auto;
+            height: calc(100vh - 100px);
+        }
     </style>
 </head>
 <body>
-    <!-- Navigationsleiste -->
+    <!-- Navigationsleiste mit Ankern -->
     <nav>
-        <a href="#">Our Society</a>
+        <a href="#our-society">Our Society</a>
         <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
-        <a href="#">Buy/Sell Moon & Mars</a>
+        <a href="#buy-sell">Buy/Sell Moon & Mars</a>
         <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
     </nav>
 
@@ -92,7 +96,18 @@
     <!-- Komet -->
     <div id="comet"></div>
 
-   
+    <!-- Textfelder mit Beispieltext -->
+    <div class="content-section" id="our-society">
+        <h2>Our Society</h2>
+        <p>Die Solar System Society ist eine visionäre Gemeinschaft, die sich der Erforschung und Besiedlung unseres Sonnensystems widmet. 
+        Unser Ziel ist es, die Menschheit zu den Sternen zu führen und eine multiplanetare Zivilisation zu schaffen.</p>
+    </div>
+
+    <div class="content-section" id="buy-sell">
+        <h2>Buy/Sell Moon & Mars</h2>
+        <p>Hier können Sie virtuelle Grundstücke auf Mond und Mars erwerben oder verkaufen. 
+        Werden Sie Teil der Zukunft, indem Sie heute Ihren Anteil an der interplanetaren Expansion sichern!</p>
+    </div>
 
     <script>
         // Funkelnde Sterne generieren
@@ -109,7 +124,6 @@
             }
         }
 
-        // Sterne beim Laden der Seite erstellen
         window.onload = createStars;
     </script>
 </body>
