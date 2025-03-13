@@ -13,8 +13,7 @@
             overflow: hidden;
         }
         header {
-            background: rgba(0, 0, 51, 0.7);
-            color: #020426
+            background: rgba(2, 4, 38, 0.7);
             padding: 20px;
             text-align: center;
             position: relative;
@@ -75,6 +74,41 @@
             100% { opacity: 1; }
         }
 
+        /* Komet */
+        .comet {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: moveComet 15s linear infinite;
+            z-index: 0;
+        }
+        .comet::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            transform: translateX(-100%);
+            top: 50%;
+            left: 100%;
+        }
+
+        @keyframes moveComet {
+            0% {
+                bottom: -10%;
+                left: -10%;
+                transform: translate(-100%, 100%);
+            }
+            100% {
+                bottom: 110%;
+                left: 110%;
+                transform: translate(0, -100%);
+            }
+        }
+
         /* Bild-Styling */
         .solar-image {
             position: absolute;
@@ -89,6 +123,7 @@
 </head>
 <body>
     <div class="stars"></div>
+    <div class="comet"></div>
     <img src="pics/004.jpg" alt="Solar System Image" class="solar-image">
     <header>
         <h1>Solar System Society</h1>
