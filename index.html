@@ -67,14 +67,14 @@
             100% { left: 100%; bottom: 100%; }
         }
 
-        /* Neue Styles für Textfelder */
+        /* Angepasste Styles für Textfelder */
         .content-section {
             position: relative;
-            margin-top: 100px;
+            margin-top: 300px; /* Erhöht, um Platz für Logo zu schaffen */
             padding: 20px;
             z-index: 5;
             overflow-y: auto;
-            height: calc(100vh - 100px);
+            height: calc(100vh - 300px); /* Angepasst an neuen margin-top */
         }
     </style>
 </head>
@@ -90,7 +90,8 @@
     <!-- Logo -->
     <img id="logo" src="webfiles/004.jpg" alt="Solar System Society Logo">
 
-  
+    <!-- Mars -->
+    <div id="mars"></div>
 
     <!-- Komet -->
     <div id="comet"></div>
