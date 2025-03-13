@@ -39,7 +39,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 250px;
+            width: 50px;
             z-index: 10;
         }
 
@@ -56,24 +56,16 @@
             100% { opacity: 0.2; }
         }
 
-        /* Komet */
+        /* Komet ohne Schweif */
         #comet {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 20px;
+            height: 20px;
             background: white;
             border-radius: 50%;
             box-shadow: 0 0 10px white;
-            animation: comet-fly 5s linear infinite;
             z-index: 2;
         }
-        
-        @keyframes comet-fly {
-            0% { left: -50px; bottom: -50px; }
-            100% { left: 100%; bottom: 100%; }
-        }
-
-       
     </style>
 </head>
 <body>
@@ -87,9 +79,6 @@
 
     <!-- Logo -->
     <img id="logo" src="webfiles/004.jpg" alt="Solar System Society Logo">
-
-    <!-- Mars -->
-    <div id="mars"></div>
 
     <!-- Komet -->
     <div id="comet"></div>
@@ -109,8 +98,52 @@
             }
         }
 
-        // Sterne beim Laden der Seite erstellen
-        window.onload = createStars;
+        // Komet mit zufälligen Bahnen
+        const comet = document.getElementById("comet");
+
+        function setRandomCometPath() {
+            // Zufällige Start- und Endpunkte
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            const endX = Math.random() * window.innerWidth;
+            const endY = Math.random() * window.innerHeight;
+
+            // Animation zurücksetzen
+            comet.style.animation = "none";
+            comet.offsetHeight; // Trigger reflow
+            comet.style.left = `${startX}px`;
+            comet.style.top = `${startY}px`;
+
+            // Neue Animation hinzufügen
+            const duration = Math.random() * 3 + 2; // Zufällige Dauer zwischen 2 und 5 Sekunden
+            comet.style.animation = `comet-fly ${duration}s linear infinite`;
+            
+            // Keyframes dynamisch definieren
+            const styleSheet = document.styleSheets[0];
+            const keyframes = `
+                @keyframes comet-fly {
+                    0% { left: ${startX}px; top: ${startY}px; }
+                    100% { left: ${endX}px; top: ${endY}px; }
+                }
+            `;
+            // Bestehende Keyframes entfernen und neue hinzufügen
+            for (let i = 0; i < styleSheet.cssRules.length; i++) {
+                if (styleSheet.cssRules[i].name === "comet-fly") {
+                    styleSheet.deleteRule(i);
+                    break;
+                }
+            }
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+            // Nach Ablauf der Animation neuen Pfad setzen
+            setTimeout(setRandomCometPath, duration * 1000);
+        }
+
+        // Seite laden und Funktionen starten
+        window.onload = function() {
+            createStars();
+            setRandomCometPath();
+        };
     </script>
 </body>
 </html>
