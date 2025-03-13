@@ -39,7 +39,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 50px;
+            width: 150px; /* Logo auf 150px Breite */
             z-index: 10;
         }
 
@@ -65,6 +65,31 @@
             border-radius: 50%;
             box-shadow: 0 0 10px white;
             z-index: 2;
+            animation: comet-fly 100s linear infinite; /* 100 Sekunden pro Zyklus, langsamer Flug */
+        }
+
+        /* 10 vorgeschriebene Bahnen */
+        @keyframes comet-fly {
+            0% { left: 10%; top: 90%; }    /* Bahn 1 Start */
+            10% { left: 80%; top: 20%; }   /* Bahn 1 Ende */
+            10.01% { left: 20%; top: 80%; } /* Bahn 2 Start */
+            20% { left: 70%; top: 30%; }   /* Bahn 2 Ende */
+            20.01% { left: 30%; top: 10%; } /* Bahn 3 Start */
+            30% { left: 90%; top: 70%; }   /* Bahn 3 Ende */
+            30.01% { left: 50%; top: 95%; } /* Bahn 4 Start */
+            40% { left: 40%; top: 40%; }   /* Bahn 4 Ende */
+            40.01% { left: 80%; top: 60%; } /* Bahn 5 Start */
+            50% { left: 10%; top: 20%; }   /* Bahn 5 Ende */
+            50.01% { left: 60%; top: 85%; } /* Bahn 6 Start */
+            60% { left: 20%; top: 50%; }   /* Bahn 6 Ende */
+            60.01% { left: 90%; top: 30%; } /* Bahn 7 Start */
+            70% { left: 40%; top: 80%; }   /* Bahn 7 Ende */
+            70.01% { left: 15%; top: 65%; } /* Bahn 8 Start */
+            80% { left: 85%; top: 15%; }   /* Bahn 8 Ende */
+            80.01% { left: 70%; top: 90%; } /* Bahn 9 Start */
+            90% { left: 25%; top: 25%; }   /* Bahn 9 Ende */
+            90.01% { left: 45%; top: 10%; } /* Bahn 10 Start */
+            100% { left: 60%; top: 70%; }  /* Bahn 10 Ende */
         }
     </style>
 </head>
@@ -83,67 +108,16 @@
     <!-- Komet -->
     <div id="comet"></div>
 
-    <script>
-        // Funkelnde Sterne generieren
-        function createStars() {
-            for (let i = 0; i < 100; i++) {
-                let star = document.createElement("div");
-                star.className = "star";
-                star.style.width = Math.random() * 3 + "px";
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + "vw";
-                star.style.top = Math.random() * 100 + "vh";
-                star.style.animationDelay = Math.random() * 2 + "s";
-                document.body.appendChild(star);
-            }
-        }
-
-        // Komet mit zufälligen Bahnen
-        const comet = document.getElementById("comet");
-
-        function setRandomCometPath() {
-            // Zufällige Start- und Endpunkte
-            const startX = Math.random() * window.innerWidth;
-            const startY = Math.random() * window.innerHeight;
-            const endX = Math.random() * window.innerWidth;
-            const endY = Math.random() * window.innerHeight;
-
-            // Animation zurücksetzen
-            comet.style.animation = "none";
-            comet.offsetHeight; // Trigger reflow
-            comet.style.left = `${startX}px`;
-            comet.style.top = `${startY}px`;
-
-            // Neue Animation hinzufügen
-            const duration = Math.random() * 3 + 2; // Zufällige Dauer zwischen 2 und 5 Sekunden
-            comet.style.animation = `comet-fly ${duration}s linear infinite`;
-            
-            // Keyframes dynamisch definieren
-            const styleSheet = document.styleSheets[0];
-            const keyframes = `
-                @keyframes comet-fly {
-                    0% { left: ${startX}px; top: ${startY}px; }
-                    100% { left: ${endX}px; top: ${endY}px; }
-                }
-            `;
-            // Bestehende Keyframes entfernen und neue hinzufügen
-            for (let i = 0; i < styleSheet.cssRules.length; i++) {
-                if (styleSheet.cssRules[i].name === "comet-fly") {
-                    styleSheet.deleteRule(i);
-                    break;
-                }
-            }
-            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-
-            // Nach Ablauf der Animation neuen Pfad setzen
-            setTimeout(setRandomCometPath, duration * 1000);
-        }
-
-        // Seite laden und Funktionen starten
-        window.onload = function() {
-            createStars();
-            setRandomCometPath();
-        };
-    </script>
+    <!-- Funkelnde Sterne manuell hinzufügen (ohne JavaScript) -->
+    <div class="star" style="width: 2px; height: 2px; left: 10%; top: 15%;"></div>
+    <div class="star" style="width: 1px; height: 1px; left: 20%; top: 25%;"></div>
+    <div class="star" style="width: 3px; height: 3px; left: 30%; top: 35%;"></div>
+    <div class="star" style="width: 2px; height: 2px; left: 40%; top: 45%;"></div>
+    <div class="star" style="width: 1px; height: 1px; left: 50%; top: 55%;"></div>
+    <div class="star" style="width: 3px; height: 3px; left: 60%; top: 65%;"></div>
+    <div class="star" style="width: 2px; height: 2px; left: 70%; top: 75%;"></div>
+    <div class="star" style="width: 1px; height: 1px; left: 80%; top: 85%;"></div>
+    <div class="star" style="width: 2px; height: 2px; left: 90%; top: 95%;"></div>
+    <!-- Weitere Sterne können manuell hinzugefügt werden -->
 </body>
 </html>
