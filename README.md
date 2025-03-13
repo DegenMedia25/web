@@ -14,4 +14,9 @@ The above mentioned will be updated after creation and may be subject to changes
 
 https://degenmedia25.github.io/web/
 
+
 **Disclaimer:** All tokens released by the **Solar System Society** are Memecoins and have no intrinsic value.
+
+Don't buy any other tokens than the tokens mentioned here and on the website or in TG.
+
+You should verify the correct contract address before buying.
