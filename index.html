@@ -39,7 +39,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 150px;
+            width: 250px;
             z-index: 10;
         }
 
@@ -56,15 +56,25 @@
             100% { opacity: 0.2; }
         }
 
-        /* Komet */
+        /* Komet mit Schweif */
         #comet {
             position: absolute;
             width: 20px;
             height: 20px;
-            background: linear-gradient(45deg, white, transparent);
+            background: white;
             border-radius: 50%;
             box-shadow: 0 0 10px white;
             animation: comet-fly 5s linear infinite;
+            z-index: 2;
+        }
+        #comet::after {
+            content: '';
+            position: absolute;
+            width: 100px; /* Länge des Schweifs */
+            height: 5px; /* Dicke des Schweifs */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+            transform: translateX(-100%); /* Schweif hinter dem Kometen */
+            border-radius: 5px;
         }
         @keyframes comet-fly {
             0% { left: -50px; bottom: -50px; }
