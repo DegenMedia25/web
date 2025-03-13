@@ -12,6 +12,8 @@ Please read website, manifest, roadmap, whitepaper and socials for more informat
 
 The above mentioned will be updated after creation and may be subject to changes.
 
+
+
 https://degenmedia25.github.io/web/
 
 
