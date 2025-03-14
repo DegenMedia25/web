@@ -40,13 +40,14 @@
             z-index: 10;
         }
 
+        /* Starfield Container */
         .starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 1; /* Behind content, in front of background */
         }
         .star {
             position: absolute;
@@ -84,7 +85,7 @@
             overflow-y: auto;
         }
 
-        /* Styling für den Disclaimer-Abschnitt */
+        /* Styling for the Disclaimer section */
         #disclaimer {
             margin-top: 50px;
             font-size: 10px;
@@ -94,9 +95,10 @@
     </style>
 </head>
 <body>
+    <!-- Starfield Container -->
     <div class="starfield"></div>
 
-    <!-- Navigationsleiste mit Disclaimer-Button -->
+    <!-- Navigation bar with Home button and Disclaimer -->
     <nav>
         <a href="index.html">Home</a>
         <a href="#our-society">Our Society</a>
@@ -109,10 +111,10 @@
     <!-- Logo -->
     <img id="logo" src="webfiles/004.jpg" alt="Solar System Society Logo">
 
-    <!-- Komet -->
+    <!-- Comet -->
     <div id="comet"></div>
 
-    <!-- Textfelder -->
+    <!-- Text sections -->
     <div class="content-section" id="our-society">
         <h2>Our Society</h2>
         <p>Welcome to the Solar System Society—a bold, visionary community daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
@@ -130,7 +132,7 @@
         
         <p>Don’t wait for the future to arrive—create it. Buy low on the bonding curve, watch your investment soar as the world catches up, and sell when the time is right—or hold forever as a pioneer of the cosmic age. The Solar System Society is your gateway to the stars. Claim your piece of the Moon and Mars now—because the sky isn’t the limit; it’s just the beginning!</p>
 
-        <!-- Buy Buttons nebeneinander -->
+        <!-- Buy Buttons side by side -->
         <div style="margin-top: 20px; text-align: center; display: flex; justify-content: center; gap: 40px;">
             <div>
                 <a href="https://dexscreener.com/moonshot" target="_blank">
@@ -148,7 +150,7 @@
         </div>
     </div>
 
-    <!-- Disclaimer als eigener Abschnitt -->
+    <!-- Disclaimer as a separate section -->
     <div class="content-section" id="disclaimer">
         <h3>Disclaimer</h3>
         <p>The tokens offered through the Solar System Society, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
@@ -157,6 +159,7 @@
     </div>
 
     <script>
+        // Generate twinkling stars
         function createStars() {
             const starfield = document.querySelector('.starfield');
             for (let i = 0; i < 100; i++) {
