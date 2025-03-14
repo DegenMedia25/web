@@ -40,14 +40,13 @@
             z-index: 10;
         }
 
-        /* Sternenhimmel Container */
         .starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Hinter Inhalten, vor Hintergrund */
+            z-index: 1;
         }
         .star {
             position: absolute;
@@ -84,19 +83,27 @@
             z-index: 5;
             overflow-y: auto;
         }
+
+        /* Styling für den Disclaimer-Abschnitt */
+        #disclaimer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #aaaaaa;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- Sternenhimmel Container -->
     <div class="starfield"></div>
 
-    <!-- Navigationsleiste mit Home-Button -->
+    <!-- Navigationsleiste mit Disclaimer-Button -->
     <nav>
         <a href="index.html">Home</a>
         <a href="#our-society">Our Society</a>
         <a href="#buy-guide">Buy/Sell Moon & Mars</a>
         <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
         <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
+        <a href="#disclaimer">Disclaimer</a>
     </nav>
 
     <!-- Logo -->
@@ -105,7 +112,7 @@
     <!-- Komet -->
     <div id="comet"></div>
 
-    <!-- Textfelder mit Beispieltext -->
+    <!-- Textfelder -->
     <div class="content-section" id="our-society">
         <h2>Our Society</h2>
         <p>Welcome to the Solar System Society—a bold, visionary community daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
@@ -115,38 +122,41 @@
         <p>Join us. Be part of the vanguard that dares to claim the stars. Together, we’re not just reaching for the heavens—we’re building an empire among them. The universe is calling. Will you answer?</p>
     </div>
 
-  <div class="content-section" id="buy-guide">
-    <h2>Buy/Sell Moon & Mars</h2>
-    <p>Step into the future—own a piece of the cosmos today! The Moon and Mars aren’t just celestial bodies; they’re the next frontier of human ambition, and you can claim your stake *right now*. With the Solar System Society, you’re not just buying virtual land—you’re investing in a legacy that could redefine wealth for centuries to come.</p>
-    
-    <p>Picture this: the barren plains of the Moon, the red dunes of Mars—yours to own, yours to trade, yours to bequeath. What starts as a bold move today could become *real property* tomorrow as humanity colonizes the stars. This isn’t a game; it’s a chance to secure *generational wealth* on a scale never seen before. Every token you buy on Moonshot’s bonding curve brings you closer to owning the universe—literally.</p>
-    
-    <p>Don’t wait for the future to arrive—create it. Buy low on the bonding curve, watch your investment soar as the world catches up, and sell when the time is right—or hold forever as a pioneer of the cosmic age. The Solar System Society is your gateway to the stars. Claim your piece of the Moon and Mars now—because the sky isn’t the limit; it’s just the beginning!</p>
-
-    <!-- Buy Buttons nebeneinander -->
-    <div style="margin-top: 20px; text-align: center; display: flex; justify-content: center; gap: 40px;">
-        <div>
-            <a href="https://dexscreener.com/moonshot" target="_blank">
-                <img src="webfiles/mars.jpg" alt="Buy Mars Token" style="width: 200px; height: auto;">
-            </a>
-            <p style="margin: 10px 0;">Claim Your Mars Land Now!</p>
-        </div>
+    <div class="content-section" id="buy-guide">
+        <h2>Buy/Sell Moon & Mars</h2>
+        <p>Step into the future—own a piece of the cosmos today! The Moon and Mars aren’t just celestial bodies; they’re the next frontier of human ambition, and you can claim your stake *right now*. With the Solar System Society, you’re not just buying virtual land—you’re investing in a legacy that could redefine wealth for centuries to come.</p>
         
-        <div>
-            <a href="https://dexscreener.com/moonshot" target="_blank">
-                <img src="webfiles/moon.jpg" alt="Buy Moon Token" style="width: 200px; height: auto;">
-            </a>
-            <p style="margin: 10px 0;">Secure Your Moon Property Today!</p>
+        <p>Picture this: the barren plains of the Moon, the red dunes of Mars—yours to own, yours to trade, yours to bequeath. What starts as a bold move today could become *real property* tomorrow as humanity colonizes the stars. This isn’t a game; it’s a chance to secure *generational wealth* on a scale never seen before. Every token you buy on Moonshot’s bonding curve brings you closer to owning the universe—literally.</p>
+        
+        <p>Don’t wait for the future to arrive—create it. Buy low on the bonding curve, watch your investment soar as the world catches up, and sell when the time is right—or hold forever as a pioneer of the cosmic age. The Solar System Society is your gateway to the stars. Claim your piece of the Moon and Mars now—because the sky isn’t the limit; it’s just the beginning!</p>
+
+        <!-- Buy Buttons nebeneinander -->
+        <div style="margin-top: 20px; text-align: center; display: flex; justify-content: center; gap: 40px;">
+            <div>
+                <a href="https://dexscreener.com/moonshot" target="_blank">
+                    <img src="webfiles/mars.jpg" alt="Buy Mars Token" style="width: 200px; height: auto;">
+                </a>
+                <p style="margin: 10px 0;">Claim Your Mars Land Now!</p>
+            </div>
+            
+            <div>
+                <a href="https://dexscreener.com/moonshot" target="_blank">
+                    <img src="webfiles/moon.jpg" alt="Buy Moon Token" style="width: 200px; height: auto;">
+                </a>
+                <p style="margin: 10px 0;">Secure Your Moon Property Today!</p>
+            </div>
         </div>
     </div>
-<div style="margin-top: 20px; font-size: 14px; color: #aaaaaa; text-align: center;">
-    <h3>Disclaimer</h3>
-    <p>The tokens offered through the Solar System Society, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
-    
-    <p>This is not financial advice. We do not guarantee future recognition of virtual land claims as real property, nor do we promise any returns or profits. Participation is at your own risk. Always conduct your own research and consult with a qualified financial advisor before investing in cryptocurrencies or memecoins. The Solar System Society is not responsible for any losses incurred.</p>
-</div>
+
+    <!-- Disclaimer als eigener Abschnitt -->
+    <div class="content-section" id="disclaimer">
+        <h3>Disclaimer</h3>
+        <p>The tokens offered through the Solar System Society, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
+        
+        <p>This is not financial advice. We do not guarantee future recognition of virtual land claims as real property, nor do we promise any returns or profits. Participation is at your own risk. Always conduct your own research and consult with a qualified financial advisor before investing in cryptocurrencies or memecoins. The Solar System Society is not responsible for any losses incurred.</p>
+    </div>
+
     <script>
-        // Funkelnde Sterne generieren
         function createStars() {
             const starfield = document.querySelector('.starfield');
             for (let i = 0; i < 100; i++) {
