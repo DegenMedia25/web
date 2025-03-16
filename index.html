@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,6 +46,7 @@
             transform: rotate(360deg);
         }
 
+        /* Starfield Container */
         .starfield {
             position: fixed;
             top: 0;
@@ -99,14 +98,14 @@
             margin-bottom: 10px;
         }
         .accordion-header {
-            background: rgba(255, 204, 0, 0.2);
+            background: #4682b4; /* Medium blue (Steel Blue) */
             padding: 15px;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
         }
         .accordion-header:hover {
-            background: rgba(255, 204, 0, 0.4);
+            background: #5a9bd4; /* Lighter blue on hover */
         }
         .accordion-content {
             display: none;
@@ -124,6 +123,7 @@
             margin-top: 20px;
         }
 
+        /* Planet Animation */
         .planet {
             position: absolute;
             border-radius: 50%;
@@ -163,7 +163,7 @@
     <div class="content-section">
         <div class="accordion">
             <div class="accordion-item" id="our-community">
-                <div class="accordion-header">Die Community</div>
+                <div class="accordion-header">Our Community</div>
                 <div class="accordion-content">
                     <p>Welcome to the Solar System Community—a bold, visionary collective daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
                     <p>This is more than a movement; it’s a revolution. Today, your stake in the Moon and Mars might be virtual, but tomorrow, as humanity’s reach extends beyond Earth, these claims could transform into real, recognized property. Think about it: what you secure now could become *generational wealth*—a legacy etched in the cosmos, a gift to your descendants that echoes through time. The Solar System Community isn’t just about exploration; it’s about building a future where your vision today shapes the prosperity of tomorrow.</p>
@@ -175,7 +175,7 @@
                 <div class="accordion-header">SSC Coin</div>
                 <div class="accordion-content">
                     <p>The <strong>Solar System Coin (SSC)</strong> is your key to the cosmos. More than a memecoin, it’s a ticket to own a piece of the solar system—starting with Mars, the red frontier. Hold SSC for 2 months to claim your stake in the Mars Genesis Event, where shares are distributed either proportionally (via a cosmic airdrop) or randomly (via a lottery of the void). For every object after Mars, hold SSC for 3 months to qualify—think Venus’ clouds, Saturn’s rings, or a glittering asteroid.</p>
-                    <p>Stake your SSC in the Solar Vault for bonus shares, join the Solar Council after a year, or hunt for Wild Cards hidden in the blockchain for instant mega-claims. The SSC isn’t just currency—it’s power, legacy, and a wild bet on humanity’s stellar future.</p>
+                    <p>The SSC isn’t just currency—it’s power, legacy, and a wild bet on humanity’s stellar future.</p>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
             }
         }
 
-        // Accordion Toggle
+        // Toggle accordion sections
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
