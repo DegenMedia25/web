@@ -173,22 +173,23 @@
 
         /* Buy Button */
         .buy-button {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 15px;
-            background: #ffcc00;
-            color: #000000;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 25px;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .buy-button:hover {
-            background: #ffffff;
-            transform: scale(1.05);
-        }
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #ffcc00; /* Hintergrund Gold */
+    color: #000000 !important; /* Schriftfarbe Schwarz, mit !important für Priorität */
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    transition: background 0.3s, transform 0.3s;
+}
+.buy-button:hover {
+    background: #ffffff; /* Hintergrund Weiß beim Hovern */
+    color: #000000 !important; /* Schriftfarbe bleibt Schwarz */
+    transform: scale(1.05);
+}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
