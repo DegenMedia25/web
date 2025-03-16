@@ -15,13 +15,13 @@
 
         body {
             background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 100%);
-            font-family: 'Orbitron', sans-serif; /* Futuristic font */
+            font-family: 'Orbitron', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Fullscreen Header with Animation */
+        /* Fullscreen Header */
         header {
             height: 100vh;
             display: flex;
@@ -47,6 +47,19 @@
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Logo Styling */
+        #logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            z-index: 10;
+            transition: transform 0.5s;
+        }
+        #logo:hover {
+            transform: rotate(360deg);
         }
 
         /* Nebula Background Effect */
@@ -125,6 +138,14 @@
             margin: 0 auto 20px;
             text-align: center;
         }
+        .section a {
+            color: #ffcc00;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .section a:hover {
+            color: #ffffff;
+        }
 
         /* Interactive Planet */
         .planet {
@@ -175,9 +196,10 @@
     <!-- Starfield Container -->
     <div class="starfield"></div>
 
-    <!-- Header with Nebula Effect -->
+    <!-- Header with Nebula Effect and Logo -->
     <header>
         <div class="nebula"></div>
+        <img id="logo" src="webfiles/004.jpg" alt="Solar System Community Logo">
         <h1>Solar System Community</h1>
         <p>Claim your stake in the cosmos and join the pioneers of a multiplanetary future.</p>
     </header>
@@ -186,6 +208,8 @@
     <nav>
         <a href="#mission">Mission</a>
         <a href="#ssc-coin">SSC Coin</a>
+        <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
+        <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
         <a href="#disclaimer">Disclaimer</a>
     </nav>
 
@@ -193,7 +217,7 @@
     <div class="section" id="mission">
         <h2>Our Mission</h2>
         <p>We’re not just stargazers—we’re starclaimers. The Solar System Community is a bold alliance of visionaries ready to turn the vast expanse of space into humanity’s next frontier. From the dusty plains of Mars to the shimmering rings of Saturn, we’re building a legacy that spans the cosmos.</p>
-        <p>Today, it’s a virtual claim. Tomorrow, it could be real estate among the stars. Join us, and let’s write history—light-years beyond Earth.</p>
+        <p>Today, it’s a virtual claim. Tomorrow, it could be real estate among the stars. Curious about our vision? Check out our <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a> and join us to write history—light-years beyond Earth.</p>
         <div class="planet" style="top: 20%; left: 10%;"></div>
     </div>
 
@@ -201,7 +225,7 @@
     <div class="section" id="ssc-coin">
         <h2>Solar System Coin (SSC)</h2>
         <p>The <strong>SSC</strong> is your passport to the solar system. Hold it for 2 months to claim a piece of Mars in our Genesis Event—distributed proportionally or by cosmic lottery. After Mars, hold for 3 months to stake your claim on Venus, moons, asteroids, and beyond.</p>
-        <p>It’s more than a coin—it’s your ticket to a future where the stars are yours. Dare to dream big. Dare to own the universe.</p>
+        <p>It’s more than a coin—it’s your ticket to a future where the stars are yours. Want the full details? Dive into our <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a> and dare to own the universe.</p>
         <div class="planet" style="top: 80%; right: 15%;"></div>
     </div>
 
@@ -229,8 +253,8 @@
             }
         }
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
+        // Smooth scroll for navigation (except external links)
+        document.querySelectorAll('nav a:not([target="_blank"])').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -242,6 +266,5 @@
         window.onload = createStars;
     </script>
 </body>
-</html>
 
-</html>
+
