@@ -1,6 +1,6 @@
-### Solar System Society
+### Solar System Community
 
-**Solar System Society** is a serious approach of a community based crypto project aiming to claim the whole solar system excluding the earth.
+**Solar System Community** is a serious approach of a community based crypto project aiming to claim the whole solar system excluding the earth.
 
 It is essential that more than one guy is putting work into this project.
 
@@ -17,7 +17,7 @@ The above mentioned will be updated after creation and may be subject to changes
 https://degenmedia25.github.io/web/
 
 
-**Disclaimer:** All tokens released by the **Solar System Society** are Memecoins and have no intrinsic value.
+**Disclaimer:** All tokens released by the **Solar System Community** are Memecoins and have no intrinsic value.
 
 Don't buy any other tokens than the tokens mentioned here and on the website or in TG.
 
