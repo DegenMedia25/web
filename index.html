@@ -13,6 +13,7 @@
             font-family: Arial, sans-serif;
             font-size: 14px;
             color: white;
+            overflow-x: hidden;
         }
 
         nav {
@@ -29,6 +30,7 @@
             text-decoration: none;
             margin: 0 20px;
             font-size: 18px;
+            transition: color 0.3s;
         }
         nav a:hover {
             color: #ffcc00;
@@ -40,16 +42,19 @@
             left: 10px;
             width: 250px;
             z-index: 10;
+            transition: transform 0.5s;
+        }
+        #logo:hover {
+            transform: rotate(360deg);
         }
 
-        /* Starfield Container */
         .starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Behind content, in front of background */
+            z-index: 1;
         }
         .star {
             position: absolute;
@@ -83,21 +88,50 @@
             margin-left: 20px;
             padding: 20px;
             z-index: 5;
-            overflow-y: auto;
         }
 
-        /* Styling for the Disclaimer section */
-        #disclaimer {
-            margin-top: 50px;
-            font-size: 10px;
-            color: #aaaaaa;
-            text-align: center;
+        /* Accordion Styling */
+        .accordion {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .accordion-item {
+            margin-bottom: 10px;
+        }
+        .accordion-header {
+            background: rgba(255, 204, 0, 0.2);
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .accordion-header:hover {
+            background: rgba(255, 204, 0, 0.4);
+        }
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 5px 5px;
+        }
+        .accordion-content.active {
+            display: block;
         }
 
-        /* Styling for the Buy Image */
+        /* Buy Section */
         .buy-image {
             text-align: center;
             margin-top: 20px;
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: orbit 20s linear infinite;
+        }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
         }
     </style>
 </head>
@@ -105,15 +139,15 @@
     <!-- Starfield Container -->
     <div class="starfield"></div>
 
-    <!-- Navigation bar with Home button and Disclaimer -->
+    <!-- Navigation bar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="#our-community">Our Community</a>
-         <a href="#buy">Buy</a>
+        <a href="#ssc-coin">SSC Coin</a>
+        <a href="#buy">Buy</a>
         <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
         <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
         <a href="#disclaimer">Disclaimer</a>
-       
     </nav>
 
     <!-- Logo -->
@@ -122,14 +156,29 @@
     <!-- Comet -->
     <div id="comet"></div>
 
-    <!-- Text sections -->
-    <div class="content-section" id="our-community">
-        <h2>Our Community</h2>
-        <p>Welcome to the Solar System Community—a bold, visionary community daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
-        
-        <p>This is more than a movement; it’s a revolution. Today, your stake in the Moon and Mars might be virtual, but tomorrow, as humanity’s reach extends beyond Earth, these claims could transform into real, recognized property. Think about it: what you secure now could become *generational wealth*—a legacy etched in the cosmos, a gift to your descendants that echoes through time. The Solar System Community isn’t just about exploration; it’s about building a future where your vision today shapes the prosperity of tomorrow.</p>
-        
-        <p>Join us. Be part of the vanguard that dares to claim the stars. Together, we’re not just reaching for the heavens—we’re building an empire among them. The universe is calling. Will you answer?</p>
+    <!-- Animated Planet (Mars) -->
+    <div class="planet" style="width: 30px; height: 30px; background: #ff4500; top: 50%; left: 50%;"></div>
+
+    <!-- Accordion Sections -->
+    <div class="content-section">
+        <div class="accordion">
+            <div class="accordion-item" id="our-community">
+                <div class="accordion-header">Die Community</div>
+                <div class="accordion-content">
+                    <p>Welcome to the Solar System Community—a bold, visionary collective daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
+                    <p>This is more than a movement; it’s a revolution. Today, your stake in the Moon and Mars might be virtual, but tomorrow, as humanity’s reach extends beyond Earth, these claims could transform into real, recognized property. Think about it: what you secure now could become *generational wealth*—a legacy etched in the cosmos, a gift to your descendants that echoes through time. The Solar System Community isn’t just about exploration; it’s about building a future where your vision today shapes the prosperity of tomorrow.</p>
+                    <p>Join us. Be part of the vanguard that dares to claim the stars. Together, we’re not just reaching for the heavens—we’re building an empire among them. The universe is calling. Will you answer?</p>
+                </div>
+            </div>
+
+            <div class="accordion-item" id="ssc-coin">
+                <div class="accordion-header">SSC Coin</div>
+                <div class="accordion-content">
+                    <p>The <strong>Solar System Coin (SSC)</strong> is your key to the cosmos. More than a memecoin, it’s a ticket to own a piece of the solar system—starting with Mars, the red frontier. Hold SSC for 2 months to claim your stake in the Mars Genesis Event, where shares are distributed either proportionally (via a cosmic airdrop) or randomly (via a lottery of the void). For every object after Mars, hold SSC for 3 months to qualify—think Venus’ clouds, Saturn’s rings, or a glittering asteroid.</p>
+                    <p>Stake your SSC in the Solar Vault for bonus shares, join the Solar Council after a year, or hunt for Wild Cards hidden in the blockchain for instant mega-claims. The SSC isn’t just currency—it’s power, legacy, and a wild bet on humanity’s stellar future.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Buy Image Section -->
@@ -141,12 +190,17 @@
         </div>
     </div>
 
-    <!-- Disclaimer as a separate section -->
-    <div class="content-section" id="disclaimer">
-        <h3>Disclaimer</h3>
-        <p>The tokens offered through the Solar System Community, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
-        
-        <p>This is not financial advice. We do not guarantee future recognition of virtual land claims as real property, nor do we promise any returns or profits. Participation is at your own risk. Always conduct your own research and consult with a qualified financial advisor before investing in cryptocurrencies or memecoins. The Solar System Community is not responsible for any losses incurred.</p>
+    <!-- Disclaimer Accordion -->
+    <div class="content-section">
+        <div class="accordion">
+            <div class="accordion-item" id="disclaimer">
+                <div class="accordion-header">Disclaimer</div>
+                <div class="accordion-content">
+                    <p>The tokens offered through the Solar System Community, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
+                    <p>This is not financial advice. We do not guarantee future recognition of virtual land claims as real property, nor do we promise any returns or profits. Participation is at your own risk. Always conduct your own research and consult with a qualified financial advisor before investing in cryptocurrencies or memecoins. The Solar System Community is not responsible for any losses incurred.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -165,9 +219,15 @@
             }
         }
 
+        // Accordion Toggle
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+
         window.onload = createStars;
     </script>
 </body>
 </html>
-
-
