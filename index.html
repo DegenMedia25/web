@@ -1,60 +1,79 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System Community</title>
+    <title>Solar System Community - Claim the Cosmos</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: #0a0a1a;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            color: white;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 100%);
+            font-family: 'Orbitron', sans-serif; /* Futuristic font */
+            color: #ffffff;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
+        /* Fullscreen Header with Animation */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            z-index: 10;
+            position: relative;
+            overflow: hidden;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            transition: color 0.3s;
+        header h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: fadeIn 2s ease-in;
         }
-        nav a:hover {
-            color: #ffcc00;
+        header p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            max-width: 600px;
+            animation: fadeIn 3s ease-in;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        #logo {
+        /* Nebula Background Effect */
+        .nebula {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 250px;
-            z-index: 10;
-            transition: transform 0.5s;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1), rgba(0, 0, 255, 0.1), transparent);
+            z-index: -1;
+            animation: pulse 15s infinite;
         }
-        #logo:hover {
-            transform: rotate(360deg);
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
         }
 
-        /* Starfield Container */
+        /* Starfield */
         .starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: -2;
         }
         .star {
             position: absolute;
@@ -63,155 +82,145 @@
             animation: twinkle 2s infinite;
         }
         @keyframes twinkle {
-            0% { opacity: 0.2; }
+            0% { opacity: 0.3; }
             50% { opacity: 1; }
-            100% { opacity: 0.2; }
+            100% { opacity: 0.3; }
         }
 
-        #comet {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, white, transparent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            animation: comet-fly 60s linear infinite;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
         }
-        @keyframes comet-fly {
-            0% { left: -50px; bottom: -50px; }
-            100% { left: 100%; bottom: 100%; }
+        nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
         }
 
-        .content-section {
+        /* Content Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
             position: relative;
-            margin-top: 180px;
-            margin-left: 20px;
-            padding: 20px;
-            z-index: 5;
         }
-
-        /* Accordion Styling */
-        .accordion {
-            max-width: 800px;
-            margin: 20px auto;
-        }
-        .accordion-item {
-            margin-bottom: 10px;
-        }
-        .accordion-header {
-            background: #0048ba; /* Deep blue as requested */
-            padding: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .accordion-header:hover {
-            background: #0066cc; /* Slightly lighter blue on hover */
-        }
-        .accordion-content {
-            display: none;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 0 0 5px 5px;
-        }
-        .accordion-content.active {
-            display: block;
-        }
-
-        /* Buy Section */
-        .buy-image {
+        .section h2 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
             text-align: center;
-            margin-top: 20px;
+        }
+        .section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            text-align: center;
         }
 
-        /* Planet Animation */
+        /* Interactive Planet */
         .planet {
             position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ff4500, #8b0000);
             border-radius: 50%;
-            animation: orbit 20s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+            animation: orbit 25s linear infinite;
         }
         @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+
+        /* Disclaimer Styling */
+        #disclaimer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+
+        /* Buy Button */
+        .buy-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #ffcc00;
+            color: #0a0a1a;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .buy-button:hover {
+            background: #ffffff;
+            transform: scale(1.05);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Starfield Container -->
     <div class="starfield"></div>
 
-    <!-- Navigation bar -->
+    <!-- Header with Nebula Effect -->
+    <header>
+        <div class="nebula"></div>
+        <h1>Solar System Community</h1>
+        <p>Claim your stake in the cosmos and join the pioneers of a multiplanetary future.</p>
+    </header>
+
+    <!-- Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="#our-community">Our Community</a>
+        <a href="#mission">Mission</a>
         <a href="#ssc-coin">SSC Coin</a>
-        <a href="#buy">Buy</a>
-        <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
-        <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
         <a href="#disclaimer">Disclaimer</a>
     </nav>
 
-    <!-- Logo -->
-    <img id="logo" src="webfiles/004.jpg" alt="Solar System Community Logo">
-
-    <!-- Comet -->
-    <div id="comet"></div>
-
-    <!-- Animated Planet (Mars) -->
-    <div class="planet" style="width: 30px; height: 30px; background: #ff4500; top: 50%; left: 50%;"></div>
-
-    <!-- Accordion Sections -->
-    <div class="content-section">
-        <div class="accordion">
-            <div class="accordion-item" id="our-community">
-                <div class="accordion-header">Our Community</div>
-                <div class="accordion-content">
-                    <p>Welcome to the Solar System Community—a bold, visionary collective daring to redefine humanity’s destiny among the stars. We are not just dreamers; we are pioneers, forging a path to a multiplanetary future where the impossible becomes reality. Imagine a world where the vast landscapes of the Moon and Mars aren’t just distant dreams, but tangible assets—lands you can claim, own, and pass down through generations.</p>
-                    <p>This is more than a movement; it’s a revolution. Today, your stake in the Moon and Mars might be virtual, but tomorrow, as humanity’s reach extends beyond Earth, these claims could transform into real, recognized property. Think about it: what you secure now could become *generational wealth*—a legacy etched in the cosmos, a gift to your descendants that echoes through time. The Solar System Community isn’t just about exploration; it’s about building a future where your vision today shapes the prosperity of tomorrow.</p>
-                    <p>Join us. Be part of the vanguard that dares to claim the stars. Together, we’re not just reaching for the heavens—we’re building an empire among them. The universe is calling. Will you answer?</p>
-                </div>
-            </div>
-
-            <div class="accordion-item" id="ssc-coin">
-                <div class="accordion-header">SSC Coin</div>
-                <div class="accordion-content">
-                    <p>The <strong>Solar System Coin (SSC)</strong> is your key to the cosmos. More than a memecoin, it’s a ticket to own a piece of the solar system—starting with Mars, the red frontier. Hold SSC for 2 months to claim your stake in the Mars Genesis Event, where shares are distributed either proportionally (via a cosmic airdrop) or randomly (via a lottery of the void). For every object after Mars, hold SSC for 3 months to qualify—think Venus’ clouds, Saturn’s rings, or a glittering asteroid.</p>
-                    <p>The SSC isn’t just currency—it’s power, legacy, and a wild bet on humanity’s stellar future.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Mission Section -->
+    <div class="section" id="mission">
+        <h2>Our Mission</h2>
+        <p>We’re not just stargazers—we’re starclaimers. The Solar System Community is a bold alliance of visionaries ready to turn the vast expanse of space into humanity’s next frontier. From the dusty plains of Mars to the shimmering rings of Saturn, we’re building a legacy that spans the cosmos.</p>
+        <p>Today, it’s a virtual claim. Tomorrow, it could be real estate among the stars. Join us, and let’s write history—light-years beyond Earth.</p>
+        <div class="planet" style="top: 20%; left: 10%;"></div>
     </div>
 
-    <!-- Buy Image Section -->
-    <div class="content-section" id="buy">
-        <div class="buy-image">
-            <a href="https://moonshot.cc" target="_blank">
-                <img src="webfiles/buy.png" alt="Buy Tokens" style="width: 150px; height: auto;">
-            </a>
-        </div>
+    <!-- SSC Coin Section -->
+    <div class="section" id="ssc-coin">
+        <h2>Solar System Coin (SSC)</h2>
+        <p>The <strong>SSC</strong> is your passport to the solar system. Hold it for 2 months to claim a piece of Mars in our Genesis Event—distributed proportionally or by cosmic lottery. After Mars, hold for 3 months to stake your claim on Venus, moons, asteroids, and beyond.</p>
+        <p>It’s more than a coin—it’s your ticket to a future where the stars are yours. Dare to dream big. Dare to own the universe.</p>
+        <div class="planet" style="top: 80%; right: 15%;"></div>
     </div>
 
-    <!-- Disclaimer Accordion -->
-    <div class="content-section">
-        <div class="accordion">
-            <div class="accordion-item" id="disclaimer">
-                <div class="accordion-header">Disclaimer</div>
-                <div class="accordion-content">
-                    <p>The tokens offered through the Solar System Community, including those related to Moon and Mars, are memecoins and should be considered highly speculative investments. They are not backed by any physical assets, legal property rights, or guarantees of value. The value of memecoins can be extremely volatile and may drop to zero at any time. Investing in memecoins involves significant financial risk, and you could lose all of your investment.</p>
-                    <p>This is not financial advice. We do not guarantee future recognition of virtual land claims as real property, nor do we promise any returns or profits. Participation is at your own risk. Always conduct your own research and consult with a qualified financial advisor before investing in cryptocurrencies or memecoins. The Solar System Community is not responsible for any losses incurred.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Disclaimer Section with Buy Button -->
+    <div class="section" id="disclaimer">
+        <h2>Disclaimer</h2>
+        <p>The Solar System Community tokens, including SSC, are memecoins—speculative and not tied to physical assets or legal rights. Their value can swing wildly or crash to zero. Investing carries high risk, and you could lose everything.</p>
+        <p>This isn’t financial advice. No promises of profit or future property recognition here. Join at your own risk, and always do your homework before diving into crypto.</p>
+        <a href="https://moonshot.cc" target="_blank" class="buy-button">Buy SSC Now</a>
     </div>
 
     <script>
         // Generate twinkling stars
         function createStars() {
             const starfield = document.querySelector('.starfield');
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 150; i++) {
                 let star = document.createElement("div");
                 star.className = "star";
-                star.style.width = Math.random() * 3 + "px";
+                star.style.width = Math.random() * 4 + "px";
                 star.style.height = star.style.width;
                 star.style.left = Math.random() * 100 + "vw";
                 star.style.top = Math.random() * 100 + "vh";
@@ -220,15 +229,19 @@
             }
         }
 
-        // Toggle accordion sections
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                content.classList.toggle('active');
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
         window.onload = createStars;
     </script>
 </body>
+</html>
+
 </html>
