@@ -5,274 +5,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System Community - Claim the Cosmos</title>
+    <title>You're PooEd yet?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 100%);
-            font-family: 'Orbitron', sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #1A1A1A, #3C2F2F);
+            color: #FFFFFF;
         }
-
-        /* Fullscreen Header */
         header {
-            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 20px;
+            background: #1A1A1A;
         }
         header h1 {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            animation: fadeIn 2s ease-in;
-        }
-        header p {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            max-width: 600px;
-            animation: fadeIn 3s ease-in;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Logo Styling */
-        #logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 200px;
-            z-index: 10;
-            transition: transform 0.5s;
-        }
-        #logo:hover {
-            transform: rotate(360deg);
-        }
-
-        /* Nebula Background Effect */
-        .nebula {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 0, 255, 0.1), rgba(0, 0, 255, 0.1), transparent);
-            z-index: -1;
-            animation: pulse 15s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 0.5; }
-        }
-
-        /* Starfield */
-        .starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
-        }
-        @keyframes twinkle {
-            0% { opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { opacity: 0.3; }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
+            font-family: 'Permanent Marker', cursive;
+            color: #FF00FF;
+            margin: 0;
         }
         nav a {
-            color: #ffcc00;
-            text-decoration: none;
+            color: #00FF99;
             margin: 0 15px;
-            font-size: 1.2rem;
-            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+            font-weight: bold;
         }
         nav a:hover {
-            color: #ffffff;
-            transform: scale(1.1);
+            color: #FF00FF;
         }
-
-        /* Content Sections */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 48px;
+            color: #FFFFFF;
+        }
+        .hero p {
+            font-size: 24px;
+            color: #CCCCCC;
+        }
         .section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .section h2 {
-            font-size: 2.5rem;
-            color: #ffcc00;
-            margin-bottom: 20px;
+            padding: 50px 20px;
             text-align: center;
         }
-        .section p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-            text-align: center;
+        .section h3 {
+            font-family: 'Permanent Marker', cursive;
+            color: #FF00FF;
+            font-size: 36px;
         }
-        .section a {
-            color: #ffcc00;
-            text-decoration: underline;
-            transition: color 0.3s;
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .section a:hover {
-            color: #ffffff;
-        }
-
-        /* Interactive Planet */
-        .planet {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, #ff4500, #8b0000);
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
-            animation: orbit 25s linear infinite;
-        }
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-        }
-
-        /* Disclaimer Styling */
-        #disclaimer {
-            background: rgba(0, 0, 0, 0.7);
+        .step {
+            background: #2A2A2A;
             padding: 20px;
+            width: 200px;
             border-radius: 10px;
-            font-size: 0.9rem;
-            color: #aaaaaa;
         }
-
-        /* Buy Button */
-        .buy-button {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 15px;
-    background: #ffcc00; /* Hintergrund Gold */
-    color: #000000 !important; /* Schriftfarbe Schwarz, mit !important für Priorität */
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 25px;
-    transition: background 0.3s, transform 0.3s;
-}
-.buy-button:hover {
-    background: #ffffff; /* Hintergrund Weiß beim Hovern */
-    color: #000000 !important; /* Schriftfarbe bleibt Schwarz */
-    transform: scale(1.05);
-}
+        .warning {
+            background: rgba(255, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .disclaimer {
+            background: rgba(255, 255, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .socials {
+            padding: 20px;
+        }
+        .socials a {
+            color: #00FF99;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .socials a:hover {
+            color: #FF00FF;
+        }
+        .buy-coin {
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1A1A1A;
+            font-size: 14px;
+        }
+        /* Button Styles */
+        .get-started-btn img {
+            width: 200px;
+            transition: box-shadow 0.3s;
+        }
+        .get-started-btn img:hover {
+            box-shadow: 0 0 15px #00FF99;
+        }
+        .buy-coin-btn img {
+            width: 200px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 #FF00FF; }
+            50% { box-shadow: 0 0 15px #FF00FF; }
+            100% { box-shadow: 0 0 0 #FF00FF; }
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Starfield Container -->
-    <div class="starfield"></div>
-
-    <!-- Header with Nebula Effect and Logo -->
     <header>
-        <div class="nebula"></div>
-        <img id="logo" src="webfiles/004.jpg" alt="Solar System Community Logo">
-        <h1>Solar System Community</h1>
-        <p>Claim your stake in the cosmos and join the pioneers of a multiplanetary future.</p>
+        <h1>You're PooEd yet?</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="https://pump.fun/placeholder">Buy PooEd Coin</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#mission">Mission</a>
-        <a href="#ssc-coin">SSC Coin</a>
-        <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a>
-        <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a>
-        <a href="#disclaimer">Disclaimer</a>
-    </nav>
+    <section class="hero">
+        <h2>Give Your Friends a *Smelly* Surprise!</h2>
+        <p>Anonymous, via Crypto, with a wink.</p>
+        <div class="get-started-btn">
+            <a href="#how-it-works"><img src="get-started-btn.png" alt="Get Started"></a>
+        </div>
+    </section>
 
-    <!-- Mission Section -->
-    <div class="section" id="mission">
-        <h2>Our Mission</h2>
-        <p>We’re not just stargazers—we’re starclaimers. The Solar System Community is a bold alliance of visionaries ready to turn the vast expanse of space into humanity’s next frontier. From the dusty plains of Mars to the shimmering rings of Saturn, we’re building a legacy that spans the cosmos.</p>
-        <p>Today, it’s a virtual claim. Tomorrow, it could be real estate among the stars. Curious about our vision? Check out our <a href="webfiles/Manifesto.pdf" target="_blank">Manifesto</a> and join us to write history—light-years beyond Earth.</p>
-        <h2>1. The Mars Genesis Event (First Object):</h2> 
-<p>Mars, the red jewel of the solar system, scarred by ancient rivers and whispering of lost oceans, is the first prize.</p> 
-        <p>To claim a piece of its rusty plains or towering Olympus Mons, you must hold SSC for at least 2 months.</p> 
-<h2>Distribution is a spectacle:</h2>
-<p>a) Airdrop of Destiny: Shares of Mars are divvied up proportionally—own 1% of the circulating SSC supply, and you’ll claim 1% of Mars’ allocatable land and resources (think iron oxides, subsurface ice, maybe even a future vineyard under a dome).</p>
-<p>b) Cosmic Lottery: Alternatively, a random draw among qualifiers grants massive plots—imagine winning the Valles Marineris canyon system just because the stars aligned for you!</p>
-<p>The method? Could be decided by a decentralized vote of SSC holders 30 days before the event, broadcast live across the galaxy (or at least to whoever’s listening).</p>
-        <div class="planet" style="top: 20%; left: 10%;"></div>
-    </div>
+    <section class="section" id="how-it-works">
+        <h3>How It Works</h3>
+        <div class="steps">
+            <div class="step">
+                <h4>1. Order Anonymously</h4>
+                <p>Provide a wallet address for payment and the recipient's address.</p>
+            </div>
+            <div class="step">
+                <h4>2. Confirmation</h4>
+                <p>Get a message with payment details – only then send the funds!</p>
+            </div>
+            <div class="step">
+                <h4>3. Payment</h4>
+                <p>Send SOL to two wallets: 85% to us, 15% for PooEd Coin buybacks.</p>
+            </div>
+            <div class="step">
+                <h4>4. Shipping</h4>
+                <p>After payment, get an optional tracking number. Shipping risk is yours!</p>
+            </div>
+        </div>
+        <div class="warning">
+            <p><strong>No refunds for mistakes!</strong> Send to the correct wallets or it’s your loss.</p>
+        </div>
+    </section>
 
-    <!-- SSC Coin Section -->
-    <div class="section" id="ssc-coin">
-        <h2>Solar System Coin (SSC)</h2>
-        <p>The <strong>SSC</strong> is your passport to the solar system. Hold it for 2 months to claim a piece of Mars in our Genesis Event—distributed proportionally or by cosmic lottery. After Mars, hold for 3 months to stake your claim on Venus, moons, asteroids, and beyond.</p>
-        <p>It’s more than a coin—it’s your ticket to a future where the stars are yours. Want the full details? Dive into our <a href="webfiles/whitepaper.pdf" target="_blank">Whitepaper</a> and dare to own the universe.</p>
-        <div class="planet" style="top: 80%; right: 15%;"></div>
-    </div>
+    <section class="section">
+        <h3>Important Info</h3>
+        <p>Our *special* filling will surprise your loved ones – a little prank with big impact. (Spoiler: It’s sweeter than it smells!)</p>
+        <p>Payments in SOL only. Order is complete once shipped – even if it gets lost.</p>
+    </section>
 
-    <!-- Disclaimer Section with Buy Button -->
-    <div class="section" id="disclaimer">
-        <h2>Disclaimer</h2>
-        <p>The Solar System Community tokens, including SSC, are memecoins—speculative and not tied to physical assets or legal rights. Their value can swing wildly or crash to zero. Investing carries high risk, and you could lose everything.</p>
-        <p>This isn’t financial advice. No promises of profit or future property recognition here. Join at your own risk, and always do your homework before diving into crypto.</p>
-        <a href="https://moonshot.cc" target="_blank" class="buy-button">Buy SSC Now</a>
-    </div>
+    <section class="section">
+        <h3>Memecoin Disclaimer</h3>
+        <div class="disclaimer">
+            <p>PooEd Coin is a memecoin created for entertainment purposes only. It has no intrinsic value or expectation of financial return. There is no formal team or roadmap. Investing in memecoins carries high risk, and you could lose all your funds. Do your own research and only spend what you can afford to lose. We are not responsible for any losses, pranks gone wrong, or unexpected chocolate cravings.</p>
+        </div>
+    </section>
 
-    <script>
-        // Generate twinkling stars
-        function createStars() {
-            const starfield = document.querySelector('.starfield');
-            for (let i = 0; i < 150; i++) {
-                let star = document.createElement("div");
-                star.className = "star";
-                star.style.width = Math.random() * 4 + "px";
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + "vw";
-                star.style.top = Math.random() * 100 + "vh";
-                star.style.animationDelay = Math.random() * 2 + "s";
-                starfield.appendChild(star);
-            }
-        }
+    <section class="section buy-coin">
+        <h3>Join the PooEd Community!</h3>
+        <p>Buy our coin and support the mission. 15% of every order goes to buybacks!</p>
+        <div class="buy-coin-btn">
+            <a href="https://pump.fun/placeholder"><img src="buy-pooed-coin-btn.png" alt="Buy PooEd Coin"></a>
+        </div>
+    </section>
 
-        // Smooth scroll for navigation (except external links)
-        document.querySelectorAll('nav a:not([target="_blank"])').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <section class="section socials" id="contact">
+        <h3>Get in Touch</h3>
+        <p>Join us or ask questions via our socials:</p>
+        <div>
+            <a href="https://x.com/placeholder">X</a>
+            <a href="https://discord.gg/placeholder">Discord</a>
+        </div>
+    </section>
 
-        window.onload = createStars;
-    </script>
+    <footer>
+        <p>© 2025 You're PooEd yet? – All rights reserved. Shipping risk borne by the sender.</p>
+    </footer>
 </body>
-
+</html>
 
