@@ -10,4 +10,4 @@ Only long-term holders can access, vote and earn money.
 https://degenmedia25.github.io/web/
 
 
-**Disclaimer:** All tokens released by **PooEd** are Memecoins and have no intrinsic value.
+**Disclaimer:** All tokens released by **PooEd/Degenmedia25** are Memecoins and have no intrinsic value.
